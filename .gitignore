@@ -5,4 +5,8 @@ Lib
 Scripts
 pyvenv.cfg
 
+# Database related file(s)
+
+database.json
+
 # END 
