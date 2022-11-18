@@ -18,4 +18,4 @@ class Tournament:
     time_mode: str
     description: str 
 
-    
+    # create the basic crud operations
