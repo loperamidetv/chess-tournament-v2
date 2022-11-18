@@ -4,4 +4,7 @@ This includes table, database, paths, ...
 
 '''
 
-DATABASE_PATH = '../database.json'
+from tinydb import TinyDB
+
+DATABASE_PATH = 'database.json'
+TOURNAMENT_TABLE = TinyDB(DATABASE_PATH)
