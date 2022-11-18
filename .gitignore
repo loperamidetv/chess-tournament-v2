@@ -5,6 +5,10 @@ Lib
 Scripts
 pyvenv.cfg
 
+# Python, Cython & co
+
+*.pyc
+
 # Database related file(s)
 
 database.json
