@@ -7,4 +7,4 @@ This includes table, database, paths, ...
 from tinydb import TinyDB
 
 DATABASE_PATH = 'database.json'
-TOURNAMENT_TABLE_INSTANCE = TinyDB(DATABASE_PATH)
+TOURNAMENT_TABLE = TinyDB(DATABASE_PATH).table('tournaments')
