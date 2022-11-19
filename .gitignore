@@ -11,6 +11,7 @@ pyvenv.cfg
 # Python, Cython & co
 
 *.pyc
+__pycache__
 
 # Database related file(s)
 
