@@ -6,6 +6,7 @@ main.py
 Include
 Lib
 Scripts
+bin
 pyvenv.cfg
 
 # Python, Cython & co
