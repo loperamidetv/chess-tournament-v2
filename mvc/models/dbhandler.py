@@ -1,6 +1,9 @@
-class Crud:
+from tinydb import TinyDB
+from abc import ABC
 
-    def __init__(self, TABLE):
+class DBHandler(ABC):
+
+    def __init__(self, TABLE: TinyDB):
         self.TABLE = TABLE
 
     def create(self):
