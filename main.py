@@ -1,5 +1,13 @@
+from mvc.controlers.tournament_controllers.read_tournament import read_tournament
+from mvc.models.tournament import Tournament
+
+
 def run() -> None:
-    pass
+    tournament = Tournament()
+
+    read_tournament(2, tournament)
+
+    print(tournament)
     
 
 if (__name__ == "__main__"):
