@@ -1,5 +1,5 @@
 from mvc.models.tournament import Tournament
-from cfg.dbconst import TOURNAMENT_TABLE
+from cfg.dbconst import TOURNAMENTS_TABLE
 
 def create_tournament(tournament_instance: Tournament) -> None :
     '''
@@ -13,7 +13,7 @@ def create_tournament(tournament_instance: Tournament) -> None :
     serialized_data = tournament_instance.__dict__
     serialized_data.pop('ID')
 
-    TOURNAMENT_TABLE.insert(serialized_data)
+    TOURNAMENTS_TABLE.insert(serialized_data)
 
     # we could eventually return the previous line in order to get the ID of the db entry... 
     return None 
