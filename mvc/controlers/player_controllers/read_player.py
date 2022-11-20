@@ -1,7 +1,7 @@
 from mvc.models.player import Player
 from cfg.dbconst import PLAYERS_TABLE
 
-def read_players(ID: int, player_instance: Player) -> None:
+def read_player(ID: int, player_instance: Player) -> None:
     '''
     Given the ID, the function aims to gather the data from the database 
     and update the player instance attributes with the data
