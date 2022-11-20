@@ -12,6 +12,6 @@ class Tournament(object):
     rounds: list = None
     players: list = None
     time_mode: str = None
-    rounds: list = None 
+    rounds: list = None # list of Round instances
     description: str = None
     ID: int = None
