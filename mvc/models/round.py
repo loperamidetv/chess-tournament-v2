@@ -7,6 +7,6 @@ class Round(object):
     name: str = None
     start: datetime = None
     end: datetime = None
-    matches: list = None 
+    matches: list = None #list of tuples see specs
 
 
