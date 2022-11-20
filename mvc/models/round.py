@@ -1,8 +1,12 @@
 from dataclasses import dataclass
+from datetime import datetime
 
 @dataclass
 class Round(object):
 
-    matches: list = None
+    name: str = None
+    start: datetime = None
+    end: datetime = None
+    matches: list = None 
 
-    
+
