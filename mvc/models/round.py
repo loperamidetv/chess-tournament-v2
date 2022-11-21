@@ -5,7 +5,7 @@ from datetime import datetime
 class Round(object):
 
     name: str = None
-    start: datetime = None
+    start: datetime = datetime.now()
     end: datetime = None
     matches: list = None #list of tuples see specs
 
