@@ -67,7 +67,7 @@ class Tournament(object):
         so I ditch the ID part (by if-ing...)
         '''
         for key, value in self.__dict__.items():
-            if key != 'ID':
+            if (key != 'ID'):
                 data[key] = value
 
 
