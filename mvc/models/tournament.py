@@ -12,18 +12,18 @@ class Tournament(object):
     ID: int = None
     name: str = None
     location: str = None
-    # date_start: datetime = None
-    # date_end: datetime = None
-    # number_of_rounds: int = 4
-    # time_mode: str = None
-    # description: str = None
+    date_start: datetime = None
+    date_end: datetime = None
+    number_of_rounds: int = 4
+    time_mode: str = None
+    description: str = None
     
     '''
     Complexe attributes
 
     '''
-    # rounds: list = None
-    # players: list = None
+    rounds: list = None
+    players: list = None
     
 
     '''
