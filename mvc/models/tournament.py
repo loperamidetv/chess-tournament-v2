@@ -12,7 +12,7 @@ class Tournament(object):
     ID: int = None
     name: str = None
     location: str = None
-    date_start: datetime = None
+    date_start: datetime = datetime.now()
     date_end: datetime = None
     number_of_rounds: int = 4
     time_mode: str = None
