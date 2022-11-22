@@ -22,8 +22,11 @@ class Tournament(object):
     Complexe attributes
 
     '''
-    rounds: list = None
-    players: list = None
+
+    # Warning: the tournament instance contains the intances of the objects below
+    # but the db contains ID only!
+    rounds: list = []
+    players: list = []
     
 
     '''
@@ -85,7 +88,7 @@ class Tournament(object):
     OOP human-readable methods. 
 
     '''
-    def add_players(self):
+    def add_players(self, *args):
         pass
 
     def rank_by_elo(self):
