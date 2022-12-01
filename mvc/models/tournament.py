@@ -1,6 +1,11 @@
-from dataclasses import dataclass
+
+
+from dataclasses import dataclass, field
 from datetime import datetime
-from cfg.dbconst import TOURNAMENTS_TABLE
+from faker import Faker
+from cfg.dbconst import TOURNAMENTS_TABLE, PLAYERS_TABLE
+from random import choice, randrange
+from mvc.models.player import Player
 
 @dataclass
 class Tournament(object):
@@ -25,8 +30,9 @@ class Tournament(object):
 
     # Warning: the tournament instance contains the intances of the objects below
     # but the db contains ID only!
-    rounds: list = []
-    players: list = []
+    rounds: list[int] = field(default_factory=list)
+    players: list[int] = field(default_factory=list)
+    # ...                ^^^^^^^^^ WTF?
     
 
     '''
@@ -43,8 +49,12 @@ class Tournament(object):
         '''
         serialized_data = self.__dict__
         serialized_data.pop('ID')
-
+        serialized_players = [ID for ID in self.__dict__['ID']]
+        serialized_data['ID'] = serialized_players
+        
         self.ID = TOURNAMENTS_TABLE.insert(serialized_data)
+
+        print(serialized_data)
         
         # we could eventually return the previous line in order to get the ID of the db entry... 
         return None
@@ -52,7 +62,16 @@ class Tournament(object):
     def read(self) -> None:
         for key, value in TOURNAMENTS_TABLE.get(doc_id=self.ID).items():
             self.__dict__[key] = value
-            
+
+        player_instances_list = list()
+        for player_ID in self.__dict__['players']:
+            player = Player(ID=player_ID)
+            player.read()
+            player_instances_list.append(player)
+        self.players = player_instances_list
+        del player_instances_list
+        
+     
 
     def update(self) -> None:
         '''
@@ -88,9 +107,27 @@ class Tournament(object):
     OOP human-readable methods. 
 
     '''
-    def add_players(self, *args):
-        pass
 
+    def random(self):
+        fake_data = Faker('fr_FR')
+        self.name = fake_data.name()
+        self.location = fake_data.city()
+        self.time_mode = choice(['blitz', 'bullet', 'coup rapide'])
+
+        # Select some random player in db
+       
+
+
+    def add_player_instances(self, *args: Player) -> None:
+        for player in args:
+            self.players.append(player)
+
+        return None
+
+    def serialize_players(self) -> None:
+        self.players = [player.ID for player in self.players]       
+        return None
+    
     def rank_by_elo(self):
         pass
 
